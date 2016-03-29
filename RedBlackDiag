@@ -1,0 +1,33 @@
+// write your code here
+var img = new SimpleImage(200,200);
+var w = img.getWidth();
+var xPos = 20;
+
+for(var p of img.values())
+{
+    //set canvas to red
+    p.setRed(255);
+
+    if(p.getX() <= w/10 && p.getY() <= w/1)
+    {
+        //set 20px border along left side of img to black
+        p.setRed(0);
+
+        //set top diag corner
+        if(p.getX() >= (p.getY() + 1))
+        {
+            p.setRed(255);
+        }
+    }
+
+    //set bott diag corner 
+    if(p.getY() >= 180)
+    {
+        if(p.getX() >= (200 - p.getY()))
+        {
+            p.setRed(255);
+        }
+    }
+}
+
+print(img);
