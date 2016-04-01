@@ -1,0 +1,38 @@
+// Program to change the image's color from green to red
+
+//Create new image
+var img = new SimpleImage(200,200);
+//Set all pixels in image to Green
+for(var px of img.values())
+{
+    px.setRed(255);
+}
+
+print(img);
+//write function that will change a pixels' color from green to red or vice versa
+function swapRedGreen(pixel)
+{
+    //condition to test for green and swap from green to red
+    if(pixel.getGreen() > 230)
+    {
+        pixel.setGreen(0);
+        pixel.setRed(255);
+    }
+    //condition to test for green and swap from red to green
+    else if(pixel.getRed() > 230)
+    {
+        pixel.setRed(0);
+        pixel.setGreen(255);
+    }
+    
+    return pixel;
+}
+//loop that uses function to swap colors between red and green
+for(var px of img.values())
+{
+    px = swapRedGreen(px);
+}
+
+print(img);
+
+
