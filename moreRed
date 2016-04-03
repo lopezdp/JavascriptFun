@@ -1,0 +1,26 @@
+// Write a JavaScript program to make an image have more red in it, by adding a given value to the red, 
+    making sure it doesn’t go over 255. Your program should have a function called moreRed with two parameters, 
+    a pixel and a value to increase the red by. Run your program on an image to see it get redder.
+
+var img = new SimpleImage(200,200);
+var addR = prompt("How much Red do you want to add?");
+
+function moreRed(px, incR)
+{
+    if((px.getRed() < (255-incR)) && (px.getRed() > 0))
+    {
+        incR = incR;
+    }
+    else if(px.getRed() == 255)
+    {
+        incR = 0;
+    }
+    return incR;
+}
+
+for(var p of img.values())
+{
+    p.setRed(moreRed(p,addR));
+}
+
+print(img);
