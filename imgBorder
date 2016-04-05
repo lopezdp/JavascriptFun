@@ -1,0 +1,33 @@
+// Write the complete JavaScript program to put the border around a picture, and include the following functions that are included from the lesson. You should be able to write these functions without looking at the code from the lesson. Be sure to print the image so you can see it and run the program with different border values. 
+// a) function setBlack(pixel) - This function has a parameter pixel that represents a single pixel, and returns a pixel that has been changed to be the color black. 
+// b) function pixelOnEdge(pixel, image, borderWidth) - This function has three parameters where pixel is a single pixel, image is the complete image, and borderWidth is an integer specifying the thickness of the borders. 
+// This function returns true if the pixel’s location is within borderWidth of any of the four borders, and thus on the border. Otherwise it returns false.
+
+function setBlack(pixel) {	
+     pixel.setRed(0);	
+     pixel.setGreen(0);	
+     pixel.setBlue(0);	
+     return pixel;
+}
+
+function pixelOnEdge (pixel, image, borderWidth) {	
+     var x = pixel.getX();	
+     var y = pixel.getY();	
+     if (x < borderWidth) return true;	
+     if (y < borderWidth) return true;	
+     if (x >= image.getWidth() - borderWidth) return true;
+     if (y >= image.getHeight() - borderWidth) return true;
+     return false;
+}
+
+var image = new SimpleImage("drewRobert.png");  
+  
+
+for (var pixel of image.values()) {	
+     value = 30;	
+     if (pixelOnEdge(pixel, image, value) ) {
+          pixel = setBlack(pixel);	
+     }
+}
+
+print(image);
