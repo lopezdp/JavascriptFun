@@ -236,7 +236,7 @@ are first-class objects!!!
 properties and methods just like any other object." - Moz Docs
 
 Since functions can be called and objects cannot be called, it fits in
-nicely that the syntax of an object requires that it be delare
+nicely that the syntax of an object requires that it be declared
 using the function's prototype-based paramaters to set the function 
 attributes using the methods of the function object to access them.
 
